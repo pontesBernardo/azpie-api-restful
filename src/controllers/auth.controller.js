@@ -44,15 +44,3 @@ export async function login(req, res) {
     res.status(500).json({ error: err.message });
   }
 }
-
-export async function getProfile(req, res) {
-  try {
-    const user = await prisma.user.findUnique({
-      where: { id: req.userId },
-      select: { id: true, name: true, email: true },
-    });
-    res.json(user);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-}
