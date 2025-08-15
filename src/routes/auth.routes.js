@@ -8,7 +8,7 @@ router.post("/register", register);
 router.post("/login", login);
 
 router.get("/dashboard", authMiddleware, (req, res) => {
-  res.status(200).send("Acesso autorizado à dashboard");
+  res.status(200).send("Authorized access to admin dashboard.");
 });
 
 export default router;
