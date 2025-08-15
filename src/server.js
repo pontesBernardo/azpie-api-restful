@@ -3,12 +3,16 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 import authRoutes from "./routes/auth.routes.js";
+import helmet from "helmet";
+import compression from "compression";
 
 dotenv.config();
 
 const app = express();
 
+app.use(helmet());
 app.use(cors());
+app.use(compression());
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
